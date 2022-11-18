@@ -1,0 +1,7 @@
+{
+  "url-backend": "127.0.0.1",
+  "port": 9999,
+
+  "data-db-connection": "mongodb+srv://GermanOcampo:votacion@cluster0.kvlg4oq.mongodb.net/votacion?retryWrites=true&w=majority",
+  "name-db": "votacion"
+}
