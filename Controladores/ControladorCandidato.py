@@ -28,10 +28,17 @@ class ControladorCandidato():
         candidatoActual.nombre = infoCandidato["nombre"]
         candidatoActual.apellido = infoCandidato["apellido"]
         candidatoActual.numero_resolucion = infoCandidato["numero_resolucion"]
-        id_partido = infoCandidato["id_partido"]
-        elPartido = Partido(self.repositorioPartifo.findById(id_partido))
-        candidatoActual.id_partido = elPartido
         return self.repositorioCandidato.save(candidatoActual)
 
     def delete(self, id):
         return self.repositorioCandidato.delete(id)
+
+    """
+      Relación candidato y partido
+    """
+    def asignarPartido(self, id, id_partido):
+        candidatoActual = Candidato(self.repositorioCandidato.findById(id))
+        partidotoActual = Partido(self.repositorioPartido.findById(id_partido))
+        candidatoActual.id_partido = partidotoActual
+        return self.repositorioCandidato.save(candidatoActual)
+
